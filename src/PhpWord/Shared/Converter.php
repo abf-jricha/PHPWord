@@ -91,7 +91,18 @@ class Converter
     }
 
     /**
-     * Convert inch to twip.
+     * Convert EMU to pixel
+     *
+     * @param float $emu
+     * @return int
+     */
+    public static function emuToPoint($emu = 1)
+    {
+        return round(self::pixelToPoint($emu) / self::PIXEL_TO_EMU);
+    }
+
+    /**
+     * Convert inch to twip
      *
      * @param float $inch
      *

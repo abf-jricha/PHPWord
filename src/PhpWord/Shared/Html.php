@@ -874,7 +874,13 @@ class Html
         }
 
         if (is_file($src)) {
-            $newElement = $element->addImage($src, $style);
+            $imgData = new \stdClass();
+            $imgData->path = $src;
+            $imgData->unit = $style['unit'] ?? null;
+            $imgData->width = $style['width'] ?? null;
+            $imgData->height = $style['height'] ?? null;
+            $newElement = $element->addText('${IMG:' . base64_encode(json_encode($imgData)) . '}');
+            //$newElement = $element->addImage($src, $style);
         } else {
             throw new \Exception("Could not load image $originSrc");
         }

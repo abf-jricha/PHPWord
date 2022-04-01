@@ -133,6 +133,11 @@ class ZipArchive
 
         if (!$this->usePclzip) {
             $zip = new \ZipArchive();
+
+            if ($flags === null) {
+                $flags = 0;
+            }
+
             $result = $zip->open($this->filename, $flags);
 
             // Scrutizer will report the property numFiles does not exist

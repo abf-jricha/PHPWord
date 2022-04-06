@@ -125,7 +125,7 @@ class ZipArchive
      * @param int $flags The mode to use to open the archive
      * @return bool
      */
-    public function open($filename, $flags = null)
+    public function open($filename, $flags = 0)
     {
         $result = true;
         $this->filename = $filename;

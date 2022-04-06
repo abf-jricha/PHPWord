@@ -125,7 +125,7 @@ class ZipArchive
      * @param int $flags The mode to use to open the archive
      * @return bool
      */
-    public function open($filename, $flags = null)
+    public function open($filename, $flags = 0)
     {
         $result = true;
         $this->filename = $filename;
@@ -133,11 +133,6 @@ class ZipArchive
 
         if (!$this->usePclzip) {
             $zip = new \ZipArchive();
-
-            if ($flags === null) {
-                $flags = 0;
-            }
-
             $result = $zip->open($this->filename, $flags);
 
             // Scrutizer will report the property numFiles does not exist

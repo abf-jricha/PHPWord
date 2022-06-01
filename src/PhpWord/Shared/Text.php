@@ -63,7 +63,7 @@ class Text
             self::buildControlCharacters();
         }
 
-        return str_replace(array_values(self::$controlCharacters), array_keys(self::$controlCharacters), $value);
+        return str_replace(array_values(self::$controlCharacters), array_keys(self::$controlCharacters), $value ?? '');
     }
 
     /**
